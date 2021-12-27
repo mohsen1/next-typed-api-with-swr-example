@@ -2,11 +2,11 @@
 
 import { NextApiHandler } from "next";
 
-import data from "../../data.json";
-import User from "../../User";
+import data from "../../../data.json";
+import User from "../../../User";
 
 const handler: NextApiHandler<User[]> = (req, res) => {
-  res.status(200).json(data.users);
+  res.status(200).json(data.users.filter((user) => user.isAdmin));
 };
 
 export default handler;
